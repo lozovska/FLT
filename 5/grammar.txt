@@ -1,0 +1,13 @@
+[Grammar] -> [Entities]
+[Entities] -> [Entity] | [Entity] ; [Entity]
+[Entity] -> [Name] :: [PK] ; [FK] ; [Attributes] ; [Parent] ; [Child] ; [OtherRelations]
+[Name] -> [a-zA-Z][Str]
+[PK] -> [a-zA-Z][Str] , [PK] | [a-zA-Z][Str]
+[FK] -> [a-zA-Z][Str] , [FK] | [a-zA-Z][Str]
+[Attributes] -> [Attribute], [Attributes] | ε
+[Attribute] -> [a-zA-Z][Str]
+[Parent] -> [Name] ([Cardinality]) , [Parent] | ε
+[Child] -> [Name] ([Cardinality]) , [Child] | ε
+[OtherRelations] -> [Name] ([Cardinality]) , [OtherRelations] | ε
+[Cardinality] ->  1 | 0-M | 1-M
+[Str] -> [a-zA-Z0-9_][Str] | ε

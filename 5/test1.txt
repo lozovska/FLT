@@ -1,0 +1,6 @@
+Customer :: Phone; NULL; FirstName, LastName, Email, City; Parent : NULL; Child : NULL; OtherRelations : Order (0-M)
+BookStore :: BookstoreName; NULL; Email, URL, Phone; Parent : NULL; Child : NULL; OtherRelations : Order (0-M)
+Order :: OrderNumber; NULL; PaymentType, MakingOrderDate, DeliveryDate; Parent : NULL; Child : OrderLineBook (1-M); OtherRelations : Customer (1), BookStore (1)
+OrderLineBook :: LineNumber; OrderNumber, ISBN; Quantity, ExtendedPrice; Parent : Order (1), Book (1); Child : NULL; OtherRelations : Book (1)
+Book :: ISBN; NULL; Title, Genre, PublishingHouse, PublishingYear, Price; Parent : NULL; Child : OrderLineBook (1-M); OtherRelations : Author (1-M)
+Author :: AuthorID; NULL; FirstName, LastName, DeathYear, Country; Parent : NULL; Child : NULL; OtherRelations : Book (0-M)

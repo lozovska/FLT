@@ -1,0 +1,54 @@
+{
+    "tables": {
+        "Customer": {
+            "Phone": " ",
+            "FirstName": " ",
+            "LastName": " ",
+            "Email": " ",
+            "City": " "
+        },
+        "BookStore": {
+            "BookstoreName": " ",
+            "Email": " ",
+            "URL": " ",
+            "Phone": " "
+        },
+        "Order": {
+            "OrderNumber": " ",
+            "PaymentType": " ",
+            "MakingOrderDate": " ",
+            "DeliveryDate": " "
+        },
+        "OrderLineBook": {
+            "LineNumber": " ",
+            "OrderNumber": " ",
+            "ISBN": " ",
+            "Quantity": " ",
+            "ExtendedPrice": " "
+        },
+        "Book": {
+            "ISBN": " ",
+            "Title": " ",
+            "Genre": " ",
+            "PublishingHouse": " ",
+            "PublishingYear": " ",
+            "Price": " "
+        },
+        "Author": {
+            "AuthorID": " ",
+            "FirstName": " ",
+            "LastName": " ",
+            "DeathYear": " ",
+            "Country": " "
+        }
+    },
+    "relations": [
+        "Customer:Phone 1--* Order:OrderNumber",
+        "BookStore:BookstoreName 1--* Order:OrderNumber",
+        "Order:OrderNumber 1--+ OrderLineBook:OrderNumber",
+        "Book:ISBN 1--+ OrderLineBook:OrderNumber",
+        "Book:ISBN *--+ Author:AuthorID"
+    ],
+    "rankAdjustments": "",
+    "label": ""
+}

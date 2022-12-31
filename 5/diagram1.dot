@@ -1,0 +1,118 @@
+/* created with ERDot < https://github.com/ehne/ERDot > */
+digraph G {
+    graph [
+        nodesep=0.5;
+        rankdir="LR";
+        concentrate=true;
+        splines="spline";
+        fontname="Helvetica";
+        pad="0.2,0.2",
+        label="",
+        
+    ];
+    
+    node [shape=plain, fontname="Helvetica"];
+    edge [
+        dir=both,
+        fontsize=12,
+        arrowsize=0.9,
+        penwidth=1.0,
+        labelangle=32,
+        labeldistance=1.8,
+        fontname="Helvetica"
+    ];
+    
+    "Customer" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>Customer</i></td></tr>
+        <tr><td port="Phone" align="left" cellpadding="5">Phone <font color="grey60"> </font></td></tr>
+        <tr><td port="FirstName" align="left" cellpadding="5">FirstName <font color="grey60"> </font></td></tr>
+        <tr><td port="LastName" align="left" cellpadding="5">LastName <font color="grey60"> </font></td></tr>
+        <tr><td port="Email" align="left" cellpadding="5">Email <font color="grey60"> </font></td></tr>
+        <tr><td port="City" align="left" cellpadding="5">City <font color="grey60"> </font></td></tr>
+    </table>>];
+    "BookStore" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>BookStore</i></td></tr>
+        <tr><td port="BookstoreName" align="left" cellpadding="5">BookstoreName <font color="grey60"> </font></td></tr>
+        <tr><td port="Email" align="left" cellpadding="5">Email <font color="grey60"> </font></td></tr>
+        <tr><td port="URL" align="left" cellpadding="5">URL <font color="grey60"> </font></td></tr>
+        <tr><td port="Phone" align="left" cellpadding="5">Phone <font color="grey60"> </font></td></tr>
+    </table>>];
+    "Order" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>Order</i></td></tr>
+        <tr><td port="OrderNumber" align="left" cellpadding="5">OrderNumber <font color="grey60"> </font></td></tr>
+        <tr><td port="PaymentType" align="left" cellpadding="5">PaymentType <font color="grey60"> </font></td></tr>
+        <tr><td port="MakingOrderDate" align="left" cellpadding="5">MakingOrderDate <font color="grey60"> </font></td></tr>
+        <tr><td port="DeliveryDate" align="left" cellpadding="5">DeliveryDate <font color="grey60"> </font></td></tr>
+    </table>>];
+    "OrderLineBook" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>OrderLineBook</i></td></tr>
+        <tr><td port="LineNumber" align="left" cellpadding="5">LineNumber <font color="grey60"> </font></td></tr>
+        <tr><td port="OrderNumber" align="left" cellpadding="5">OrderNumber <font color="grey60"> </font></td></tr>
+        <tr><td port="ISBN" align="left" cellpadding="5">ISBN <font color="grey60"> </font></td></tr>
+        <tr><td port="Quantity" align="left" cellpadding="5">Quantity <font color="grey60"> </font></td></tr>
+        <tr><td port="ExtendedPrice" align="left" cellpadding="5">ExtendedPrice <font color="grey60"> </font></td></tr>
+    </table>>];
+    "Book" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>Book</i></td></tr>
+        <tr><td port="ISBN" align="left" cellpadding="5">ISBN <font color="grey60"> </font></td></tr>
+        <tr><td port="Title" align="left" cellpadding="5">Title <font color="grey60"> </font></td></tr>
+        <tr><td port="Genre" align="left" cellpadding="5">Genre <font color="grey60"> </font></td></tr>
+        <tr><td port="PublishingHouse" align="left" cellpadding="5">PublishingHouse <font color="grey60"> </font></td></tr>
+        <tr><td port="PublishingYear" align="left" cellpadding="5">PublishingYear <font color="grey60"> </font></td></tr>
+        <tr><td port="Price" align="left" cellpadding="5">Price <font color="grey60"> </font></td></tr>
+    </table>>];
+    "Author" [ label=<
+        <table border="0" cellborder="1" cellspacing="0" >
+        <tr><td><i>Author</i></td></tr>
+        <tr><td port="AuthorID" align="left" cellpadding="5">AuthorID <font color="grey60"> </font></td></tr>
+        <tr><td port="FirstName" align="left" cellpadding="5">FirstName <font color="grey60"> </font></td></tr>
+        <tr><td port="LastName" align="left" cellpadding="5">LastName <font color="grey60"> </font></td></tr>
+        <tr><td port="DeathYear" align="left" cellpadding="5">DeathYear <font color="grey60"> </font></td></tr>
+        <tr><td port="Country" align="left" cellpadding="5">Country <font color="grey60"> </font></td></tr>
+    </table>>];
+
+    
+    "Customer":"Phone"->"Order":"OrderNumber" [
+        arrowhead=ocrow,
+
+        arrowtail=noneotee,
+    ];
+
+    
+    "BookStore":"BookstoreName"->"Order":"OrderNumber" [
+        arrowhead=ocrow,
+
+        arrowtail=noneotee,
+    ];
+
+    
+    "Order":"OrderNumber"->"OrderLineBook":"OrderNumber" [
+        arrowhead=ocrowtee,
+
+        arrowtail=noneotee,
+    ];
+
+    
+    "Book":"ISBN"->"OrderLineBook":"OrderNumber" [
+        arrowhead=ocrowtee,
+
+        arrowtail=noneotee,
+    ];
+
+    
+    "Book":"ISBN"->"Author":"AuthorID" [
+        arrowhead=ocrowtee,
+
+        arrowtail=ocrow,
+    ];
+
+
+
+    
+
+}
