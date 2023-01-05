@@ -1,0 +1,22 @@
+digraph finite_state_machine {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+	rankdir=LR;
+	node [shape = Mrecord];
+	"0" [label = "STATE 0 \nX-\>.S\nS-\>.[A]"]
+	"1" [label = "STATE 1 \nX-\>S."]
+	"2" [label = "STATE 2 \nS-\>[.A]\nA-\>.aa\nA-\>.d"]
+	"3" [label = "STATE 3 \nS-\>[A.]"]
+	"4" [label = "STATE 4 \nA-\>a.a"]
+	"5" [label = "STATE 5 \nA-\>d."]
+	"6" [label = "STATE 6 \nS-\>[A]."]
+	"7" [label = "STATE 7 \nA-\>aa."]
+	0 -> 1 [label = "S"];
+	0 -> 2 [label = "["];
+	2 -> 3 [label = "A"];
+	2 -> 4 [label = "a"];
+	2 -> 5 [label = "d"];
+	3 -> 6 [label = "]"];
+	4 -> 7 [label = "a"];
+}
