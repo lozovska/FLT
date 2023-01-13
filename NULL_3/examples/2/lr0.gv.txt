@@ -1,0 +1,27 @@
+digraph finite_state_machine {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+	rankdir=LR;
+	node [shape = Mrecord];
+	"0" [label = "STATE 0 \n[X]-\>.[S]\n[S]-\>.[A][B]\n[A]-\>.[R]\n[A]-\>.cb\n[R]-\>.a\n[R]-\>.b\n[B]-\>.d"]
+	"1" [label = "STATE 1 \n[X]-\>[S]."]
+	"2" [label = "STATE 2 \n[S]-\>[A].[B]\n[B]-\>.d"]
+	"3" [label = "STATE 3 \n[A]-\>[R]."]
+	"4" [label = "STATE 4 \n[A]-\>c.b"]
+	"5" [label = "STATE 5 \n[R]-\>a."]
+	"6" [label = "STATE 6 \n[R]-\>b."]
+	"7" [label = "STATE 7 \n[B]-\>d."]
+	"8" [label = "STATE 8 \n[S]-\>[A][B]."]
+	"9" [label = "STATE 9 \n[A]-\>cb."]
+	0 -> 1 [label = "S"];
+	0 -> 2 [label = "A"];
+	0 -> 3 [label = "R"];
+	0 -> 4 [label = "c"];
+	0 -> 5 [label = "a"];
+	0 -> 6 [label = "b"];
+	0 -> 7 [label = "d"];
+	2 -> 8 [label = "B"];
+	2 -> 7 [label = "d"];
+	4 -> 9 [label = "b"];
+}

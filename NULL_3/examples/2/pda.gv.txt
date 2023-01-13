@@ -1,0 +1,24 @@
+digraph finite_state_machine {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+	rankdir=LR;
+	 node [shape = doublecircle]; 1;
+	 node [shape = circle];
+	0 -> 1 [label = "S,0/#"];
+	0 -> 2 [label = "A,#/2#"];
+	0 -> 4 [label = "c,#/4#"];
+	0 -> 11 [label = "a,#/#"];
+	0 -> 12 [label = "b,#/#"];
+	0 -> 13 [label = "d,#/#"];
+	2 -> 13 [label = "d,#/#"];
+	4 -> 16 [label = "b,#/#"];
+	14 -> 15 [label = "ε,2/$"];
+	16 -> 17 [label = "ε,4/$"];
+	10 -> 2 [label = "ε,0/2 0"];
+	11 -> 10 [label = "ε,0/# 0"];
+	12 -> 10 [label = "ε,0/# 0"];
+	13 -> 14 [label = "ε,2/# 2"];
+	15 -> 1 [label = "ε,0/ "];
+	17 -> 2 [label = "ε,0/2 0"];
+}
