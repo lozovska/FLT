@@ -246,7 +246,16 @@ if __name__ == '__main__':
         z = x.split(' '+y+' ')
         z1 = z[0].split(':')
         z2 = z[1].split(':')
-        ent = Entity(z1[0] + '_by_' + z2[0])
+        
+        # тут коллизия - учу новые русские слова:)
+        if check_names(z1[0] + '_by_' + z2[0]) == 0 :
+          ent = Entity(z1[0] + '_by_' + z2[0])
+        else:
+          for i in range(1000):
+            if check_names(z1[0] + '_by_' + z2[0] + str(i)) == 0:
+              ent = Entity(z1[0] + '_by_' + z2[0] + str(i))
+              break
+
         ent.FK = [z1[1], z2[1]]
         ent.Parent[z1[0]] = 1
         ent.Parent[z2[0]] = 1
