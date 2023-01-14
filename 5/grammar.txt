@@ -1,5 +1,5 @@
 [Grammar] -> [Entities]
-[Entities] -> [Entity] | [Entity] ; [Entity]
+[Entities] -> [Entity] | [Entity] ; [Entities]
 [Entity] -> [Name] :: [PK] ; [FK] | NULL ; [Attributes] ; Parent : [Parent] | NULL ; Child : [Child] | NULL ; OtherRelations : [OtherRelations] | NULL
 [Name] -> [a-zA-Z][Str]
 [PK] -> [a-zA-Z][Str] , [PK] | [a-zA-Z][Str]
