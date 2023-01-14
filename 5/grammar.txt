@@ -4,10 +4,10 @@
 [Name] -> [a-zA-Z][Str]
 [PK] -> [a-zA-Z][Str] , [PK] | [a-zA-Z][Str]
 [FK] -> [a-zA-Z][Str] , [FK] | [a-zA-Z][Str]
-[Attributes] -> [Attribute], [Attributes] | ε
+[Attributes] -> [Attribute], [Attributes] | [Attribute]
 [Attribute] -> [a-zA-Z][Str]
-[Parent] -> [Name] ([Cardinality]) , [Parent] | ε
-[Child] -> [Name] ([Cardinality]) , [Child] | ε
-[OtherRelations] -> [Name] ([Cardinality]) , [OtherRelations] | ε
+[Parent] -> [Name] ([Cardinality]) , [Parent] | [Name] ([Cardinality])
+[Child] -> [Name] ([Cardinality]) , [Child] | [Name] ([Cardinality])
+[OtherRelations] -> [Name] ([Cardinality]) , [OtherRelations] | [Name] ([Cardinality])
 [Cardinality] ->  1 | 0-M | 1-M
 [Str] -> [a-zA-Z0-9_][Str] | ε
