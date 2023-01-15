@@ -228,7 +228,7 @@ if __name__ == '__main__':
  
   # Латееееееех таблица
   table = Texttable()
-  table.set_cols_align([""] * 4)
+  table.set_cols_align(["l", "r", "c", "c"])
   table.set_deco(Texttable.HEADER | Texttable.VLINES)
   table.add_rows(data)
   print('Latex Table')
