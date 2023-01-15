@@ -1,6 +1,8 @@
 import json
 import os
 from tabulate import tabulate
+import latextable
+from texttable import Texttable
 
 cols_names = [' ','Parent', 'Child', 'MAX', 'MIN']
 data = []
@@ -223,7 +225,14 @@ if __name__ == '__main__':
                   newdata.append('M-M')
               data.append(newdata)
               break
-  print(tabulate(data, headers=cols_names, tablefmt="fancy_grid", showindex="always"))
+ 
+  # Латееееееех таблица
+  table = Texttable()
+  table.set_cols_align([""] * 4)
+  table.set_deco(Texttable.HEADER | Texttable.VLINES)
+  table.add_rows(data)
+  print('Latex Table')
+  print(latextable.draw_latex(table, caption="Cardinality"))
 
   # Модель сущность-связь
   dic = to_json_file(Entities, 1)
