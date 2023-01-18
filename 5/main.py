@@ -7,6 +7,14 @@ from texttable import Texttable
 cols_names = [' ','Parent', 'Child', 'MAX', 'MIN']
 data = []
 
+def check_names(name):
+  flag = 0
+  for n in Entities:
+    if n.Name == name:
+      flag = 1
+      return flag
+  return flag
+
 def get_key(d, value):
   for i, v in d.items():
     for b in v:
